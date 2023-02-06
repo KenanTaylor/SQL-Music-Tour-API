@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         allowNull: false
     },
-    name: {
+    band_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
