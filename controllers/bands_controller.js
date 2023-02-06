@@ -11,4 +11,15 @@ bands.get('/', async(req, res) => {
     }
 })
 
+bands.get('/:id', async (req, res) => {
+    try {
+        const foundBand = await Band.findOne({
+            where: { band_id: req.params.id }
+        })
+        res.status(200).json(foundBand)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 module.exports = bands
