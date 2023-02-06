@@ -12,8 +12,8 @@ bands.get('/', async(req, res) => {
             }
         })
         res.status(200).json(foundBands)
-    } catch (error) {
-        res.status(500).json(error)
+    } catch (err) {
+        res.status(500).json(err)
     }
 })
 
@@ -24,8 +24,8 @@ bands.get('/:id', async (req, res) => {
             where: { band_id: req.params.id }
         })
         res.status(200).json(foundBand)
-    } catch (error) {
-        res.status(500).json(error)
+    } catch (err) {
+        res.status(500).json(err)
     }
 })
 
@@ -37,8 +37,8 @@ bands.post('/', async(req, res) => {
             message: 'Successfully inserted a new band',
             data: newBand
         })
-    } catch (error) {
-        res.status(500).json(error)
+    } catch (err) {
+        res.status(500).json(err)
     }
 })
 
@@ -53,8 +53,8 @@ bands.put('/:id', async(req, res) => {
         res.status(200).json({
             message: `Successfully updated ${updatedBands} band(s)`
         })
-    } catch (error) {
-        res.status(500).json(error)
+    } catch (err) {
+        res.status(500).json(err)
     }
 })
 
