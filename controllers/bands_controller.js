@@ -26,12 +26,20 @@ bands.get('/:name', async (req, res) => {
                 { 
                     model: Meet_Greet, 
                     as: 'meet_greets',
-                    include: { model: Event, as: 'event'}
+                    include: { 
+                        model: Event, 
+                        as: 'event',
+                        where: { name: { [Op.like]: `%${req.query.event ? req.query.event : ''}%`}}
+                    }
                 },
                 {
                     model: Set_Time,
                     as: 'set_times',
-                    include: { model: Event, as: 'event'}
+                    include: { 
+                        model: Event, 
+                        as: 'event',
+                        where: { name: { [Op.like]: `%${req.query.event ? req.query.event : ''}%`}}
+                    }
                 }
             ]
         })
